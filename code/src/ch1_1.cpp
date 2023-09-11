@@ -21,13 +21,13 @@ void printValue(const T& val);
 template<>
 void printValue<int>(const int& val)
 {
-    printf_s("\nvalue of variable: %d", val);
+    printf_s("\nvalue of int variable: %d", val);
 }
 
 template<>
 void printValue<float>(const float& val)
 {
-    printf_s("\nvalue of variable: %.7f", val);
+    printf_s("\nvalue of float variable: %.7f", val);
 }
 
 int floatAsInt(float val)
@@ -45,10 +45,14 @@ float intAsFloat(int val)
 int main()
 {
     int intVar = 1078523331;
-    float fltVar = 3.14f;
+    float fltVar = intAsFloat(1078523331);
 
-    printValue(floatAsInt(fltVar));
+    printValue(intVar);
     printValue(intAsFloat(intVar));
+
+    printValue(fltVar);
+    printValue(floatAsInt(fltVar));
+    
     waitForAKey();
     return 0;
 }
